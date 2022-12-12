@@ -8,3 +8,118 @@ INTRODUCTION:
 3. Multitasking: preemption. multiple jobs will be done by preemption
 4. Multiprocessing: there will be multiple cpus. one cpu will be given to one process and other for another.
 5. Realtime: jobs will have deadlines.
+
+
+---Attributes of process
+1. Process id
+2. Program counter: stores starting point of next instruction
+3. priority: created when process is created.
+4. general purpose registers
+5. Process state: new, ready, blocked, running.
+6. list of open files and devices.
+-This all data is stored in pcb(process control block). all pcbs are connected as linked lists.
+
+
+
+
+States of Process:
+-new
+-ready
+-running
+-block and wait
+-terminated
+-suspend wait
+-suspend ready
+Operations of process:
+-creation
+-scheuling it
+-execute
+-kill
+
+
+
+Degree of multiprogramming: number of processes that can be present in ready state at once(decided by long term scheduler)
+short term scheduler decides which program to run next out of all the processes in ready state. Once it selects, it gives the process id to dispatcher which will then move the process from run to ready and ready to run state(context switching).
+medium term scheduler is responsible to move process from secondary memory to main memory and form main to secondary.
+
+
+Types of times:
+-arrival time: time at which process came to ready state.
+-burst time: cpu time required for process to complete.
+-completion time: time at which process is done.
+-turn around time = ct-at.
+-waiting time = tat-bt.
+-response time: first time process got scheduled.
+
+
+
+
+FCFS (first come first served)
+-no preemption.
+-criteria: arrival time.
+
+
+Convoy effect
+-if process with heavy bt gets started first, all other processes had to wait(starving) thus increasing wait time.
+
+
+-overhead: time required to move process from run to other state and other process from ready to run.
+
+
+SJF(shortest job first):
+-no preemption
+-shortest bt process among all present processes in ready state.
+-criteria: bt.
+disadvantage for process with large bt. and also bt cannot be known at start of process.
+to predict bt, static and dynamic techniques can be used.
+-static: pold=100kb,20units=>pnew=101kb=>20units.
+-dynamic: 
+    1. simple avg: tn+1=(t1+t2+..)/n.
+    2. exponential avg: Tn+1=a(tn)+(1-a)Tn.
+
+
+SRTF(shortest remaining time first):
+-preemptive
+-criteria: bt.
+-practically cannot be implemented.
+-bt related scheduling techniques cannot be implemented practically.
+
+
+Round Robin:
+-preemptive.
+-implement a process until min of TQ(time quantum) or BT, if process done terminate else preempt and run next process.
+
+
+LJF(longest job first):
+-non preemptive
+-criteria: bt.
+
+
+LRTF(longest remaining time first):
+-preemptive.
+-criteria: bt.
+
+
+HRRN(highest response ratio next):
+-non preemptive.
+-rr=wt+bt/bt.
+-favourable for shorter jobs and also considers wt.
+
+
+Priority scheduling:
+-factors:
+1. static priority.
+2. preemptive.
+3. dynamic priority.
+3. non preemptive.
+
+
+-process containing cpu and i/o time: during i/o time, cpu will be free so we can assign it to other processes.
+
+
+Multilevel queue scheduling:
+1. system processes: high priority: FCFS.
+2. interactive processes: med priority: SJF
+3. batch processes: low med priority: RR.
+4. student processes: low priority: priority scheduling.
+-Advantage: for various types of process, various scheduling algos can be used
