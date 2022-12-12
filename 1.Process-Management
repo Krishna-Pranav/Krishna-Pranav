@@ -1,0 +1,10 @@
+INTRODUCTION:
+- OS is interface between program and hardware.
+- It acts as resource allocator. Provides cpu for one process, i/o for one process etc.
+- Primary goal of OS is convineice. Secondary goal is efficiency.
+--- Types of OS:
+1. Batch OS: processes will be done batch wise(one job at a time). no  preemption.
+2. Multiprogramming: CPU will not be kept ideal. If one process is using i/o then cpu will be allocated to another process. no preemption.
+3. Multitasking: preemption. multiple jobs will be done by preemption
+4. Multiprocessing: there will be multiple cpus. one cpu will be given to one process and other for another.
+5. Realtime: jobs will have deadlines.
